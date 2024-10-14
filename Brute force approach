@@ -1,0 +1,17 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        //your code goes here
+       HashMap<Integer,Integer>mpp=new HashMap<>();
+       for(int num:nums){
+         mpp.put(num,mpp.getOrDefault(num,0)+1);
+         // here getordefault checks in map mpp if key is present or not if it does return a value associated or return zero;
+
+       }
+       for(int key:mpp.keySet()){ // iterating to entire mapp and getting value associated and checking if cnt == 1 then that's the output
+        if(mpp.get(key)==1){
+            return key;
+        }
+       }
+       return -1;
+    }
+}
